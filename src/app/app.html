@@ -3,6 +3,10 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span class="app-title">{{ title() }}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="toggleTheme()" [attr.aria-label]="'Toggle ' + (isDarkTheme() ? 'light' : 'dark') + ' theme'">
+    <mat-icon>{{ isDarkTheme() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-drawer-container class="app-container">
