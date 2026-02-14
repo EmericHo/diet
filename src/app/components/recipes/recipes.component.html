@@ -1,0 +1,67 @@
+<div class="recipes-container">
+  <h1>Recettes de la Semaine</h1>
+  <p class="subtitle">7 recettes uniques pour vos dîners (0F)</p>
+  
+  <div class="recipes-grid">
+    @for (recipe of recipes(); track recipe.id) {
+      <mat-card class="recipe-card">
+        <mat-card-header>
+          <mat-card-title>{{ recipe.name }}</mat-card-title>
+          <mat-card-subtitle>{{ recipe.category }}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <div class="recipe-info">
+            <mat-chip-set>
+              <mat-chip>
+                <mat-icon>restaurant</mat-icon>
+                {{ recipe.servings }} portions
+              </mat-chip>
+              <mat-chip>
+                <mat-icon>schedule</mat-icon>
+                Prep: {{ recipe.prepTime }}min
+              </mat-chip>
+              <mat-chip>
+                <mat-icon>local_fire_department</mat-icon>
+                Cuisson: {{ recipe.cookTime }}min
+              </mat-chip>
+              <mat-chip class="faz-chip">
+                <strong>{{ recipe.fazPoints }}F</strong>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+          
+          <mat-divider class="section-divider"></mat-divider>
+          
+          <div class="ingredients-section">
+            <h3>
+              <mat-icon>shopping_basket</mat-icon>
+              Ingrédients
+            </h3>
+            <ul class="ingredients-list">
+              @for (ingredient of recipe.ingredients; track ingredient.name) {
+                <li>
+                  <strong>{{ ingredient.name }}</strong>: {{ ingredient.quantity }}
+                </li>
+              }
+            </ul>
+          </div>
+          
+          <mat-divider class="section-divider"></mat-divider>
+          
+          <div class="steps-section">
+            <h3>
+              <mat-icon>list</mat-icon>
+              Étapes de préparation
+            </h3>
+            <ol class="steps-list">
+              @for (step of recipe.steps; track $index) {
+                <li>{{ step }}</li>
+              }
+            </ol>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</div>

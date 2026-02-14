@@ -1,0 +1,36 @@
+<div class="shopping-container">
+  <h1>Liste de Courses</h1>
+  <p class="subtitle">Tous les ingrédients pour votre semaine Nutrifaz</p>
+  
+  <mat-card class="shopping-card">
+    <mat-card-content>
+      @for (category of shoppingList(); track category.category) {
+        <div class="category-section">
+          <div class="category-header">
+            <mat-icon>{{ getCategoryIcon(category.category) }}</mat-icon>
+            <h2>{{ category.category }}</h2>
+          </div>
+          
+          <div class="items-list">
+            <table class="items-table">
+              <tbody>
+                @for (item of category.items; track item) {
+                  <tr class="item-row">
+                    <td class="item-checkbox">
+                      <mat-icon class="checkbox-icon">check_box_outline_blank</mat-icon>
+                    </td>
+                    <td class="item-text">{{ item }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          
+          @if (!$last) {
+            <mat-divider class="category-divider"></mat-divider>
+          }
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

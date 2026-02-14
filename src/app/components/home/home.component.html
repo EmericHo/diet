@@ -1,0 +1,91 @@
+<div class="home-container">
+  <mat-card class="plan-card">
+    <mat-card-header>
+      <mat-card-title>Plan Hebdomadaire Nutrifaz</mat-card-title>
+      <mat-card-subtitle>Programme de la semaine avec points FAZ</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="weeklyPlan()" class="weekly-plan-table">
+          
+          <!-- Day Column -->
+          <ng-container matColumnDef="day">
+            <th mat-header-cell *matHeaderCellDef>Jour</th>
+            <td mat-cell *matCellDef="let plan">
+              <strong>{{ plan.day }}</strong>
+            </td>
+          </ng-container>
+
+          <!-- Breakfast Column -->
+          <ng-container matColumnDef="breakfast">
+            <th mat-header-cell *matHeaderCellDef>Petit-Déjeuner</th>
+            <td mat-cell *matCellDef="let plan">
+              <div class="meal-cell">
+                <div class="meal-name">{{ plan.breakfast.name }}</div>
+                <div class="meal-faz">{{ plan.breakfast.fazPoints }}F</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Morning Snack Column -->
+          <ng-container matColumnDef="morningSnack">
+            <th mat-header-cell *matHeaderCellDef>Collation AM</th>
+            <td mat-cell *matCellDef="let plan">
+              <div class="meal-cell">
+                <div class="meal-name">{{ plan.morningSnack.name }}</div>
+                <div class="meal-faz">{{ plan.morningSnack.fazPoints }}Z</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Lunch Column -->
+          <ng-container matColumnDef="lunch">
+            <th mat-header-cell *matHeaderCellDef>Déjeuner (1F)</th>
+            <td mat-cell *matCellDef="let plan">
+              <div class="meal-cell">
+                <div class="meal-name">{{ plan.lunch.name }}</div>
+                <div class="meal-description">{{ plan.lunch.description }}</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Afternoon Snack Column -->
+          <ng-container matColumnDef="afternoonSnack">
+            <th mat-header-cell *matHeaderCellDef>Collation PM</th>
+            <td mat-cell *matCellDef="let plan">
+              <div class="meal-cell">
+                <div class="meal-name">{{ plan.afternoonSnack.name }}</div>
+                <div class="meal-faz">{{ plan.afternoonSnack.fazPoints }}Z</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Dinner Column -->
+          <ng-container matColumnDef="dinner">
+            <th mat-header-cell *matHeaderCellDef>Dîner (0F)</th>
+            <td mat-cell *matCellDef="let plan">
+              <div class="meal-cell">
+                <div class="meal-name">{{ plan.dinner.name }}</div>
+                <div class="meal-faz">{{ plan.dinner.fazPoints }}F</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Total FAZ Column -->
+          <ng-container matColumnDef="totalFAZ">
+            <th mat-header-cell *matHeaderCellDef>Total FAZ/pers</th>
+            <td mat-cell *matCellDef="let plan">
+              <div class="total-faz">
+                <strong>{{ plan.totalFAZ }} pts</strong>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
