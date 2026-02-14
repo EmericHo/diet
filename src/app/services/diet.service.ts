@@ -203,7 +203,7 @@ export class DietService {
           { name: 'Sel, poivre', quantity: 'Au goût', category: 'Condiments' }
         ],
         steps: [
-          'Laver et équeutér les haricots verts.',
+          'Laver et équeuter les haricots verts.',
           'Couper les tomates en dés.',
           'Faire revenir l\'ail émincé dans une poêle.',
           'Ajouter les escalopes de dinde et les faire dorer.',
