@@ -1,0 +1,92 @@
+.home-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.weekly-plan-table {
+  width: 100%;
+  min-width: 900px;
+  
+  th {
+    background-color: #3f51b5;
+    color: white;
+    font-weight: 600;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  
+  td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.meal-cell {
+  .meal-name {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .meal-faz {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .meal-description {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+  }
+}
+
+.total-faz {
+  font-size: 16px;
+  color: #3f51b5;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .home-container {
+    padding: 10px;
+  }
+  
+  .table-container {
+    margin-top: 10px;
+  }
+  
+  .weekly-plan-table {
+    min-width: 700px;
+    font-size: 12px;
+    
+    th, td {
+      padding: 8px 6px;
+    }
+  }
+  
+  .meal-cell {
+    .meal-name {
+      font-size: 12px;
+    }
+    
+    .meal-faz,
+    .meal-description {
+      font-size: 10px;
+    }
+  }
+}
